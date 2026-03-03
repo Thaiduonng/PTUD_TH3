@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../services/firebase_service.dart';
 import '../models/user_model.dart';
 import 'widgets/user_card.dart';
+import 'widgets/connection_error_widget.dart';
 import 'user_form_screen.dart'; // Update this import
 
 class HomeScreen extends StatefulWidget {
@@ -106,27 +107,13 @@ class _HomeScreenState extends State<HomeScreen> {
           }
 
           if (snapshot.hasError) {
-            return Center(
-              child: Padding(
-                padding: const EdgeInsets.all(24.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.error_outline, color: colorScheme.error, size: 60),
-                    const SizedBox(height: 16),
-                    Text(
-                      'Lỗi kết nối Firebase',
-                      style: TextStyle(fontWeight: FontWeight.bold, color: colorScheme.error),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      snapshot.error.toString(),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 12, color: colorScheme.onSurfaceVariant),
-                    ),
-                  ],
-                ),
-              ),
+            return ConnectionErrorWidget(
+              errorMessage: snapshot.error.toString(),
+              onRetry: () {
+                // For StreamBuilder with Firebase, we can trigger a rebuild
+                // by calling setState, though Firebase streams usually auto-retry.
+                setState(() {});
+              },
             );
           }
 
