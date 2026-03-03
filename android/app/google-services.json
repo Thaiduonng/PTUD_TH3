@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "457175692137",
+    "project_id": "callapiapp-10492",
+    "storage_bucket": "callapiapp-10492.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457175692137:android:f0a7c660fb478aea9e03f8",
+        "android_client_info": {
+          "package_name": "com.company.callapi_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtbLXeW94kic9bYrnofiN73CLncIXzeOg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
